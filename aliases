@@ -22,7 +22,7 @@ alias la='ls -A --group-directories-first'
 alias lsg='ll | grep'
 
 # vim -> neovim
-alias vim='nvim'
+# alias vim='nvim'
 
 # Alias Editing
 alias ae='vim ~/dotfiles/zsh/aliases' # alias edit
@@ -42,7 +42,7 @@ alias ga='git add '
 alias gb='git branches '
 alias gba='git branch -a '
 alias gd='git diff'
-alias go='git checkout '
+alias gco='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 alias gr='git remote -v'
