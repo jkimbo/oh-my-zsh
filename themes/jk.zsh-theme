@@ -7,10 +7,14 @@ function desk_name {
 }
 
 function get_arch {
+  OS=$(uname -s)
+  # Only show arch on Mac
+  if [[ "$OS" == "Darwin" ]]; then
     ARCH=$(arch)
     if [ "$ARCH" != "arm64" ]; then
         echo "[Rosetta] "
     fi
+  fi
 }
 
 PROMPT='$(get_arch)$(desk_name)%(1j.%{$fg[white]%}[%j]%{$reset_color%} .)%{$fg[blue]%}%~%{$fg_bold[yellow]%}$(git_prompt_info)%{$reset_color%}%{$fg[blue]%} ➤ %{$reset_color%} '
