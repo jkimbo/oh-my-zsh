@@ -17,7 +17,13 @@ function get_arch {
   fi
 }
 
-PROMPT='$(get_arch)$(desk_name)%(1j.%{$fg[white]%}[%j]%{$reset_color%} .)%{$fg[blue]%}%~%{$fg_bold[yellow]%}$(git_prompt_info)%{$reset_color%}%{$fg[blue]%} ➤ %{$reset_color%} '
+function virtualenv_name {
+  if [[ ! -z "$VIRTUAL_ENV" ]]; then
+    echo "%{$fg[white]%}[🐍 $(pyenv version-name)]%{$reset_color%} "
+  fi
+}
+
+PROMPT='$(get_arch)$(desk_name)$(virtualenv_name)%(1j.%{$fg[white]%}[%j]%{$reset_color%} .)%{$fg[blue]%}%~%{$fg_bold[yellow]%}$(git_prompt_info)%{$reset_color%}%{$fg[blue]%} ➤ %{$reset_color%} '
 
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$reset_color%}%{$fg[white]%}["
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$fg[white]%}]%{$reset_color%}"
